@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Dental Dra. Inmaculada Muñoz - Manises</title>
+    
+    <!-- Google Fonts: A clean, modern sans-serif like Lato -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon: Purple 'I' on a light gray background -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%238A2BE2'/%3E%3Ctext x='50' y='75' font-family='Georgia, serif' font-weight='700' font-size='80' fill='%23FFFFFF' text-anchor='middle'%3EI%3C/text%3E%3C/svg%3E">
+
+    <style>
+        /* --- Color & Font Variables --- */
+        :root {
+            --lime-green: #99CC33;
+            --rich-purple: #8A2BE2;
+            --clean-white: #FFFFFF;
+            --light-gray: #F4F4F4;
+            --charcoal-gray: #333333;
+            --font-body: 'Lato', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body); margin: 0; padding: 0;
+            background-color: var(--clean-white); color: var(--charcoal-gray);
+            line-height: 1.6; padding-bottom: 150px;
+        }
+
+        /* --- Header & Navigation (Compact) --- */
+        .header {
+            background-color: var(--clean-white); padding: 5px 20px; text-align: center;
+            position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .hamburger-icon .bar { background-color: var(--rich-purple); }
+        #nav-menu { background-color: var(--clean-white); }
+        #nav-menu a { color: var(--rich-purple); font-weight: bold; transition: color 0.3s; }
+        #nav-menu a:hover { color: var(--lime-green); }
+        
+        /* --- General Section Styling (Compact) --- */
+        .section { padding: 25px 20px; text-align: center; }
+        .bg-gray { background-color: var(--light-gray); }
+        .bg-lime-green { background-color: var(--lime-green); } /* NEW CLASS */
+        
+        .section-title {
+            font-size: 1.8em; color: var(--charcoal-gray);
+            margin-top: 0; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .icon-diamond {
+            color: var(--rich-purple); /* UPDATED: Purple icon color */
+            font-size: 1em; line-height: 1;
+            flex-shrink: 0; margin-right: 10px;
+        }
+
+        /* --- Hero/Title Section --- */
+        #titulo { padding-bottom: 15px; }
+        .hero-title {
+            font-size: 1.5em; color: var(--charcoal-gray);
+            margin: 0; font-weight: 700;
+        }
+        .hero-subtitle {
+            font-size: 2em; color: var(--charcoal-gray);
+            margin: 0;
+ 	        margin-bottom: 0;	
+        }
+
+        /* --- Owner & Team Photos (Compact) --- */
+        #doctora { padding-top: 0; }
+        .owner-photo, .team-photo {
+            width: 150px; height: 150px; border-radius: 50%; object-fit: cover;
+            border: 4px solid var(--rich-purple);
+            margin-bottom: 4px;
+        }
+        .owner-name, .team-name {
+            font-weight: bold; font-size: 2.0em; margin-top: 0;
+            color: var(--charcoal-gray);
+	        margin-bottom: 0;
+        }
+        .team-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        
+        /* --- Lists (Services, Why Us, FAQ) --- */
+        .info-list {
+            font-size: 1.2em;
+            list-style: none; padding: 0; margin: 0 auto;
+            max-width: 600px; display: flex; flex-direction: column;
+            align-items: flex-start; gap: 10px;
+        }
+        .info-list li {
+            display: flex; align-items: center;
+            text-align: left; font-size: 1.1em;
+        }
+        .info-list h3 { color: var(--charcoal-gray); margin: 0 0 4px 0; font-size: 1em; }
+        .info-list p { font-size: 0.9em; margin: 0; }
+        
+        /* --- Contact Section --- */
+        #contacto { background-color: var(--rich-purple); color: var(--light-gray); }
+        #contacto .section-title { color: var(--clean-white); }
+        .contact-info { list-style: none; padding: 0; }
+        .contact-info li { margin-bottom: 8px; font-size: 1.2em; }
+        .contact-info strong { color: var(--lime-green); }
+        .contact-info a { color: var(--light-gray); text-decoration: none; }
+
+        /* --- Helper/Responsive Styles --- */
+        .hamburger-icon { cursor: pointer; display: inline-block; padding: 10px; }
+        .hamburger-icon .bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: 0.4s; }
+        #nav-menu { display: none; list-style: none; padding: 0; margin: 5px 0 0 0; }
+        #nav-menu li { padding: 8px 0; }
+        @media (min-width: 768px) {
+            .hamburger-icon { display: none; }
+            #nav-menu { display: flex; justify-content: center; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="hamburger-icon" id="hamburger-btn"> <span class="bar"></span><span class="bar"></span><span class="bar"></span> </div>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="#doctora">Doctora</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#elegirnos">Por Qué Elegirnos</a></li>
+                <li><a href="#faq">Preguntas</a></li>
+                <li><a href="#equipo">Equipo</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="titulo" class="section">
+            <h1 class="hero-title">CLÍNICA DENTAL DRA. INMACULADA MUÑOZ</h1>
+            <p class="hero-subtitle">Manises</p>
+        </section>
+
+        <section id="doctora" class="section">
+            <img src="JefeFoto.webp" alt="Foto de la Dra. Inmaculada Muñoz" class="owner-photo" width="400" height="400">
+            <p class="owner-name">Dra. Inmaculada</p>
+        </section>
+
+        <!-- UPDATED BACKGROUND COLOR -->
+        <section id="servicios" class="section bg-lime-green">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <ul class="info-list">
+                <li><span class="icon-diamond">◆</span> <div>Ortodoncia Invisible</div></li>
+                <li><span class="icon-diamond">◆</span> <div>Implantes Dentales</div></li>
+                <li><span class="icon-diamond">◆</span> <div>Ortodoncia con Brackets</div></li>
+                <li><span class="icon-diamond">◆</span> <div>Odontología Infantil</div></li>
+                <li><span class="icon-diamond">◆</span> <div>Prótesis Dentales</div></li>
+                <li><span class="icon-diamond">◆</span> <div>Periodoncia</div></li>
+            </ul>
+        </section>
+        
+        <section id="elegirnos" class="section">
+            <h2 class="section-title">¿Por Qué Elegirnos?</h2>
+            <ul class="info-list">
+                <li><span class="icon-diamond">◆</span> <div><h3>Equipo Experimentado y Calificado</h3></div></li>
+                <li><span class="icon-diamond">◆</span> <div><h3>Comodidad y Cuidado del Paciente</h3></div></li>
+                <li><span class="icon-diamond">◆</span> <div><h3>Planes de Tratamiento Personalizados</h3></div></li>
+                <li><span class="icon-diamond">◆</span> <div><h3>Testimonios y Reseñas Positivas</h3></div></li>
+            </ul>
+        </section>
+
+        <!-- UPDATED BACKGROUND COLOR -->
+        <section id="faq" class="section bg-lime-green">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <ul class="info-list">
+                <li><span class="icon-diamond">◆</span> <div><h3>¿Atienden a niños?</h3><p>Sí, somos una clínica familiar y recibimos pacientes de todas las edades, incluidos niños.</p></div></li>
+                <li><span class="icon-diamond">◆</span> <div><h3>Me pone nervioso ir al dentista. ¿Qué puede hacer para ayudarme?</h3><p>Entendemos que la ansiedad dental es común. Nuestro equipo está capacitado para brindar un ambiente tranquilo y de apoyo.</p></div></li>
+                <li><span class="icon-diamond">◆</span> <div><h3>¿Qué opciones de pago ofrecen?</h3><p>Aceptamos varios métodos de pago, incluyendo efectivo y las principales tarjetas de crédito y débito. También ofrecemos planes de pago flexibles y opciones de financiación.</p></div></li>
+            </ul>
+        </section>
+
+        <section id="equipo" class="section">
+            <h2 class="section-title">Nuestro Equipo</h2>
+            <div class="team-container">
+                <!-- The Team Section Photo Links are here. -->
+                <div class="team-member"><img src="TeamMember1.webp" alt="Miembro del equipo" class="team-photo" width="400" height="400"><p class="team-name">Ana</p></div>
+                <div class="team-member"><img src="TeamMember2.webp" alt="Miembro del equipo" class="team-photo" width="400" height="400"><p class="team-name">Beatriz</p></div>
+                <div class="team-member"><img src="TeamMember3.webp" alt="Miembro del equipo" class="team-photo" width="400" height="400"><p class="team-name">Clara</p></div>
+            </div>
+        </section>
+
+        <section id="contacto" class="section">
+            <h2 class="section-title">Contacto</h2>
+            <ul class="contact-info">
+                <li><strong>Clínica:</strong> CLÍNICA DENTAL DRA. INMACULADA MUÑOZ</li>
+                <li><strong>Dirección:</strong> Pl. Rafael Atard, 17, 46940 Manises, Valencia</li>
+                <li><strong>Teléfono:</strong> <a href="tel:961523929">96 152 39 29</a></li> <!-- Placeholder Number -->
+                <li><strong>Email:</strong> <a href="mailto:info@clinicainmaculada.es">info@clinicainmaculada.es</a></li> <!-- Placeholder Email -->
+                <li><strong>Horario:</strong></li>
+                <li>Lunes a Jueves: 15:00 - 20:30</li>
+                <li>Viernes: 9:00 - 14:00</li>
+                <li>Sábado y Domingo: Cerrado</li>
+            </ul>
+        </section>
+
+    </main>
+    
+    <footer>
+        <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: #f0f0f0; padding: 15px; text-align: center; border-top: 1px solid #ccc; z-index: 1000; display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+            <p style="margin: 0 15px 10px 0; color: #333;">
+                <strong>Aviso Sobre Cookies:</strong> Este sitio web no utiliza cookies. Sin embargo, nuestro proveedor de alojamiento utiliza cookies esenciales y funcionales para operar este sitio y prestar sus servicios. Al continuar utilizando este sitio, acepta el uso de cookies por parte de nuestro proveedor de alojamiento.
+            </p>
+            <div>
+                <button id="accept-cookies" style="background-color: #007bff; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; margin: 5px;">Aceptar</button>
+                <button id="decline-cookies" style="background-color: #dc3545; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; margin: 5px;">Rechazar</button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = navMenu.querySelectorAll('a');
+        hamburgerBtn.addEventListener('click', () => { navMenu.style.display = (navMenu.style.display === 'block') ? 'none' : 'block'; });
+        navLinks.forEach(link => { link.addEventListener('click', () => { if (window.innerWidth < 768) { navMenu.style.display = 'none'; } }); });
+        const cookieBanner = document.getElementById('cookie-banner');
+        const acceptBtn = document.getElementById('accept-cookies');
+        const declineBtn = document.getElementById('decline-cookies');
+        function hideBanner() { cookieBanner.style.display = 'none'; }
+        acceptBtn.addEventListener('click', hideBanner);
+        declineBtn.addEventListener('click', hideBanner);
+    </script>
+</body>
+</html>
